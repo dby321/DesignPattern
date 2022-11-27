@@ -1,7 +1,7 @@
-package com.binyu.designModel.$01singleton;
+package com.binyu.designModel.$01singleton.$02;
 
 /**
- * 静态常量饿汉式
+ * 静态常量饿汉式2
  * 优点：写法简单，在类装载的时候就完成了实例化，避免了线程同步问题
  * 缺点：在类装载的时候就完成实例化，没有实现懒加载。如果始终没有使用过这个实例，则会造成内存的浪费
  *
@@ -11,10 +11,10 @@ package com.binyu.designModel.$01singleton;
  *
  * 结论：这种单例模式可用，可能造成内存浪费。
  */
-public class SingletonTest01 {
+public class SingletonTest02 {
     public static void main(String[] args) {
-        Singleton singleton1=Singleton.getInstance();
-        Singleton singleton2=Singleton.getInstance();
+        Singleton singleton1= Singleton.getInstance();
+        Singleton singleton2= Singleton.getInstance();
         System.out.println(singleton1==singleton2);
         // hashcode相同的对象不一定是同一个对象，这里只是打印测试一下
         System.out.println(singleton1.hashCode());
@@ -32,7 +32,14 @@ class Singleton{
     /**
      * 2.本类的内部创建对象实例
      */
-    private final static Singleton instance=new Singleton();
+    private final static Singleton instance;
+
+    /**
+     * 静态代码块只会执行一次
+     */
+    static{
+        instance=new Singleton();
+    }
 
     /**
      * 3. 提供一个公有的静态方法，返回
