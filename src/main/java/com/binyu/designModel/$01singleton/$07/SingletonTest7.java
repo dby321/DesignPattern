@@ -21,7 +21,6 @@ public class SingletonTest7 {
     }
 }
 class Singleton{
-    private static volatile Singleton instance;
     private Singleton(){
 
     }
