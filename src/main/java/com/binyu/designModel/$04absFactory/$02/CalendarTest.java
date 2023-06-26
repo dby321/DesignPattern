@@ -6,5 +6,6 @@ public class CalendarTest {
     public static void main(String[] args) {
         //工厂模式
         Calendar instance = Calendar.getInstance();
+        
     }
 }
